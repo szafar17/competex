@@ -85,7 +85,12 @@ console.log("[smoke] booting API…");
 let childOut = "";
 const child = spawn("node", [path.join(root, "apps/api/dist/index.js")], {
   cwd: root,
-  env: { ...process.env, PORT: String(PORT), NODE_ENV: "production" },
+  env: {
+    ...process.env,
+    PORT: String(PORT),
+    NODE_ENV: "production",
+    JWT_SECRET: process.env.JWT_SECRET ?? "smoke-test-secret",
+  },
 });
 child.stdout.on("data", (d) => (childOut += d.toString()));
 child.stderr.on("data", (d) => (childOut += d.toString()));

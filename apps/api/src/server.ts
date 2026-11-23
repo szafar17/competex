@@ -35,7 +35,8 @@ export async function buildServer(opts: { db?: Db } = {}): Promise<FastifyInstan
   });
 
   await app.register(helmet);
-  await app.register(cors, { origin: true });
+  // The mobile app doesn't need CORS; only listed web origins get it in production.
+  await app.register(cors, { origin: env.isDev ? true : env.corsOrigins });
   await app.register(sensible);
   await app.register(rateLimit, { max: 200, timeWindow: "1 minute" });
   await app.register(jwt, { secret: env.jwtSecret, sign: { expiresIn: env.accessTokenTtl } });

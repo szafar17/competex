@@ -44,6 +44,9 @@ Sign in with any E.164 phone number. Phone sign-in is a dev-only shortcut: there
 or any other verification yet, so the number alone is the account. Do not deploy this
 auth flow as is.
 
+With `NODE_ENV=production` the API refuses to start without `JWT_SECRET`, and CORS only
+allows the web origins listed in `CORS_ORIGINS` (the mobile app doesn't need CORS).
+
 ## Real Postgres (optional)
 
 ```sh
