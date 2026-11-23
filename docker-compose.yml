@@ -1,0 +1,20 @@
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    container_name: competex-db
+    environment:
+      POSTGRES_USER: competex
+      POSTGRES_PASSWORD: competex
+      POSTGRES_DB: competex
+    ports:
+      - "5432:5432"
+    volumes:
+      - competex-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U competex"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  competex-pgdata:

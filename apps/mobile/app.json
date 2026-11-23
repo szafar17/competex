@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "CompeteX",
+    "slug": "competex",
+    "version": "3.0.0",
+    "scheme": "competex",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#0c0c10"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.competex.mobile"
+    },
+    "android": {
+      "package": "app.competex.mobile"
+    },
+    "plugins": ["expo-router", "expo-secure-store"],
+    "experiments": {
+      "typedRoutes": false,
+      "tsconfigPaths": true
+    }
+  }
+}

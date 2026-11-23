@@ -1,0 +1,28 @@
+{
+  "name": "competex",
+  "version": "4.0.0",
+  "private": true,
+  "description": "CompeteX — train in real life, fight with your stats",
+  "packageManager": "pnpm@9.10.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "dev": "pnpm --filter @cx/api dev",
+    "db:reset": "node scripts/db-apply.mjs --reset",
+    "db:apply": "node scripts/db-apply.mjs",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "@cx/battle-engine": "workspace:*",
+    "@cx/shared": "workspace:*",
+    "@electric-sql/pglite": "^0.2.14",
+    "pg": "^8.13.1",
+    "turbo": "^2.3.0",
+    "typescript": "^5.6.3"
+  }
+}
